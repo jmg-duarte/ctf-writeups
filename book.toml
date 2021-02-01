@@ -1,0 +1,6 @@
+[book]
+authors = ["José Duarte"]
+language = "en"
+multilingual = false
+src = "src"
+title = "RootLee CTF Writeups"
