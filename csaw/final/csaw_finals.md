@@ -26,23 +26,7 @@ print(e.encrypt())
 The text is split in blocks of 3 characters and then multiplied as such:
 
 $$
-\begin{bmatrix}
-3 & 6 & x \\
-y & 4 & 2 \\
-1 & 5 & 7 \\
-\end{bmatrix}
-\times
-\begin{bmatrix}
-c_1 \\
-c_2 \\
-c_3 \\
-\end{bmatrix}
-=
-\begin{bmatrix}
-e_1 \\
-e_2 \\
-e_3 \\
-\end{bmatrix}
+\begin{bmatrix} 3 & 6 & x \\ y & 4 & 2 \\ 1 & 5 & 7 \\ \end{bmatrix} \times \begin{bmatrix} c_1 \\ c_2 \\ c_3 \\ \end{bmatrix} = \begin{bmatrix} e_1 \\ e_2 \\ e_3 \\ \end{bmatrix}
 $$
 
 If we find $M^{-1}$ we could reverse the encryption,
