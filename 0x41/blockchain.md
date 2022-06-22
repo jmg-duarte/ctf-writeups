@@ -46,12 +46,12 @@ or we can use the Remix IDE (https://remix.ethereum.org/).
 Create a file and put the contract source there.
 Once compiled, the *Deploy & Run Transactions* tab should look like this:
 
-<img src="../../../assets/code/ctfs/blockchain/deploy_run.png" style="display: block; margin-left: auto; margin-right: auto; width: 40%;">
+<img src="images/deploy_run.png" style="display: block; margin-left: auto; margin-right: auto; width: 40%;">
 
 Adding the challenge address to that *At Address* and clicking on it should add a new contract to the *Deployed Contracts* below.
 Click on the `welcome` function, the flag should appear.
 
-<img src="../../../assets/code/ctfs/blockchain/at_addres_flag.png" style="display: block; margin-left: auto; margin-right: auto; width: 40%;">
+<img src="images/at_addres_flag.png" style="display: block; margin-left: auto; margin-right: auto; width: 40%;">
 
 > If nothing appears, try to reload the page. Remix can be a bit temperamental.
 
@@ -112,12 +112,12 @@ We just need to search the logs one by one until we get the flag.
 
 For example: The first transaction stored the value `first`.
 
-<img src="../../../assets/code/ctfs/blockchain/secure_enclave_first.png" style="display: block; margin-left: auto; margin-right: auto; width: 100%;">
+<img src="images/secure_enclave_first.png" style="display: block; margin-left: auto; margin-right: auto; width: 100%;">
 
 
 > To convert from hexadecimal to text, select the menu on the numbers left and select `Number`.
 
-<img src="../../../assets/code/ctfs/blockchain/secure_enclave_flag.png" style="display: block; margin-left: auto; margin-right: auto; width: 100%;">
+<img src="images/secure_enclave_flag.png" style="display: block; margin-left: auto; margin-right: auto; width: 100%;">
 
 
 ## crackme.sol
@@ -236,13 +236,13 @@ We have our ingredients to lets try to get the flag.
 Add the address of the contract as we did with the first contract,
 get the small window on remix and send:
 
-<img src="../../../assets/code/ctfs/blockchain/crackme_string.png" style="display: block; margin-left: auto; margin-right: auto; width: 40%;">
+<img src="images/crackme_string.png" style="display: block; margin-left: auto; margin-right: auto; width: 40%;">
 
 So what happened? Remember how we switched the function signature to `string`?
 That's the problem (the start). Let us change it back to `uint[]`, keep the `memory` and replace the strings with `new(uint[])`.
 Use the `At Address` again and retry.
 
-<img src="../../../assets/code/ctfs/blockchain/crackme_buffer.png" style="display: block; margin-left: auto; margin-right: auto; width: 40%;">
+<img src="images/crackme_buffer.png" style="display: block; margin-left: auto; margin-right: auto; width: 40%;">
 
 > So what now?
 
@@ -252,7 +252,7 @@ Give it one like `256`, make sure there is enough space!
 
 About the return value, create a variable like `uint256[256] memory f` and just return that.
 
-<img src="../../../assets/code/ctfs/blockchain/crackme_flag.png" style="display: block; margin-left: auto; margin-right: auto; width: 40%;">
+<img src="images/crackme_flag.png" style="display: block; margin-left: auto; margin-right: auto; width: 40%;">
 
 I'll drop the charade now, the correct size is `26`.
 How did I figure it out? By starting at `1` and changing incrementally.
