@@ -594,5 +594,3 @@ I believe it was not returning the tokens correctly.
 
 I also did not find the error since the error was `[object Object]`.
 *Remix being helpful*.
-
-If you ever find the problem, tweet me [@duartejmg](https://twitter.com/duartejmg).
